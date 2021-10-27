@@ -1,4 +1,5 @@
 import pandas as pd
+
 produce_dictionary = {'Potatoes': [0.86, 12219, 10508],
                       'Okra': [2.26, 12960, 29290],
                       'Fava beans': [2.69, 11703, 31480],
@@ -52,8 +53,41 @@ print('Min: ', produce_data['Total Sales'].idxmin(), '-', produce_data['Total Sa
 print()
 
 print("------------------------------------------------------------STEP 2--------------------------------------------------------")
+print("Using 'loc', display the quantity and total sales for 'Orange' and 'Beets' (together)")
+print()
+print(produce_data.loc[['Orange', 'Beets'], ['Quantity Sold', 'Total Sales']])
 print()
 
+print("------------------------------------------------------------STEP 3--------------------------------------------------------")
+print("Using 'loc', display the total sales for 'Apples' through 'Lettuce'")
+print()
+print(produce_data.loc['Apples':'Lettuce', 'Total Sales'])
+print()
 
+print("------------------------------------------------------------STEP 4--------------------------------------------------------")
+print("Using 'at', update the quantity sold for Apricots to 11,955 and total sales to 44,353.05")
+print()
+produce_data.at['Apricots','Total Sales'] = 44353.05
+produce_data.at['Apricots','Quantity Sold'] = 11955
+print(produce_data.at['Apricots','Total Sales'])
+print(produce_data.at['Apricots','Quantity Sold'])
+print()
+
+print("------------------------------------------------------------STEP 5--------------------------------------------------------")
+print()
+print("What is the average quantity sold across all products? (print out ONLY quantity sold)")
+print("Average QTY Sold for all products: ", produce_data['Quantity Sold'].mean())
+print()
+
+print("------------------------------------------------------------STEP 6--------------------------------------------------------")
+print("Create a new dataframe for only those produce that have sold between 11,500 to 12,000 (quantity)")
+print()
+produce_11500_12000 = produce_data[(produce_data['Quantity Sold'] > 11500) & (produce_data['Quantity Sold'] < 12000)]
+print(produce_11500_12000)
+print()
+
+print("------------------------------------------------------------STEP 7--------------------------------------------------------")
+print("What is the total sales for the products in the above new dataframe? (print out ONLY total sales)")
+print(produce_11500_12000['Total Sales'])
 
 
