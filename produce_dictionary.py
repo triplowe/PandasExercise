@@ -88,6 +88,7 @@ print()
 
 print("------------------------------------------------------------STEP 7--------------------------------------------------------")
 print("What is the total sales for the products in the above new dataframe? (print out ONLY total sales)")
+print()
 print(produce_11500_12000['Total Sales'])
 
 
